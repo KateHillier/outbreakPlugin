@@ -1,5 +1,5 @@
 $(function() {
-	$('#baseImg').outbreak(120);
+	$('#baseImg').outbreak(150);
 });
 
 
