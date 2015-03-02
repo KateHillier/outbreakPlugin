@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src='http://use.edgefonts.net/de-walpergens-pica.js'></script>
+	<title>Outbreak</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	
+	<div class="wrapper clearfix">
+		<h1>Outbreak</h1>
+		<p>For when your infectious love of overlays just cannot be... contained</p>
+		<div class="imgContainer" id="baseImg">
+			<h3>@<span>H</span>acker<span>Y</span>ou</h3>
+			<img src="images/zombies.gif" alt="Zobies breaking through a window">
+			<div class="outbreakOverlay">
+			</div>
+		</div>
+		<div class="instructions">
+			<h2>How to:</h2>
+			<p>1. Link the 'outbreak.js' file to your HTML file.</p>
+			<p>2. Set up your Overlay.  I recommend a div with an id# on which you can call the main .js file.  Within the div link your image and create a second div for the Overlay:</p>
+<pre>
+&lt;div id=&quot;baseImg&quot;&gt;
+	&lt;img src=&quot;&quot;&gt;
+	&lt;div class=&quot;overlay&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;		
+</pre>			
+			<p>3. Setup your div to contain the Outbreak. Be sure to set the width and height of your img (or the element that you are applying the overlay to) in your CSS file:</p> 
+<pre>
+#baseImg {
+	position:relative; 
+	top:0px;
+	margin: 0 auto;
+	<span>width: 500px</span>;
+	<span>height: 350px</span>;
+	overflow: hidden;
+}
+</pre>
+			<p>4. Set the styles for your Outbreak infection - copy & paste the following to your CSS:</p>
+<pre>
+.spot {
+	position: absolute;
+	border-radius: 50%;
+	color: #D12026;
+	opacity: 0;
+	/*-webkit-animation-name: infection;*/
+	-webkit-animation-duration: 3s;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: ease-in;
+}	
+
+@-webkit-keyframes infection {
+	0% {
+		box-shadow: 0 0 0 0 #D12026;
+	}
+
+	100% {
+		box-shadow: 0 0 0 75px #D12026;
+	}
+}
+</pre>			
+			<p>5. In your 'main.js' file set the div ( or element) on which you will call the Overlay (**best not to use the img itself) & set the outbreak number to the number of spots you require to fill your Overlay:</p>
+<pre>
+$(function() {
+	$(<span>'#baseImg'</span>).outbreak(<span>100</span>);
+});
+</pre>
+		</div>
+	</div> <!-- End .wrapper -->
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src='http://use.edgefonts.net/nosifer.js'></script>
+	<script src="scripts/main.js"></script>
+	<script src="scripts/outbreak.js"></script>
+</body>
+</html>
